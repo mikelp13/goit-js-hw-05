@@ -12,10 +12,7 @@ class StringBuilder {
   }
 
   prepend(str) {
-    const strArr = this._value.split('');
-    strArr.splice(0, 0, str);
-    const newStr = strArr.join('');
-    this._value = newStr;
+    this._value = str + this._value;
   }
   
   pad(str) {
