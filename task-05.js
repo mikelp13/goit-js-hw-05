@@ -5,9 +5,9 @@ class Car {
    * в консоль значения свойств maxSpeed, speed, isOn, distance и price.
    */
 
-  static getSpecs(car) {
+  static getSpecs({ speed = 0, price, maxSpeed, isOn = false, distance = 0 }) {
     console.log(
-      `maxSpeed: ${car.maxSpeed}, speed: ${car.speed}, isOn: ${car.isOn}, distance: ${car.distance}, price: ${car.price}`
+      `maxSpeed: ${maxSpeed}, speed: ${speed}, isOn: ${isOn}, distance: ${distance}, price: ${price}`,
     );
   }
 
@@ -77,7 +77,9 @@ class Car {
    * при условии что результирующая скорость не меньше нуля
    */
   decelerate(value) {
-    if (this.speed > 0) {
+    if (this.speed - value < 0) {
+      this.speed = 0;
+    } else {
       this.speed -= value;
     }
   }
